@@ -5,9 +5,13 @@ Master-Slave / Worker-Supervisor Architecture Implemented using Open MPI in C++
 - This code implements the numerical integration method 'Trapezoidal Rule' to calculate the definite integral over the provided lower and upper limits using Open MPI.
 
 ### Trapezoidal Rule
-- It estimates the integral using the following formula. The greater the number of divisions, the more accurate the estimated calculation of the integral becomes (see the gif below | source: wikipedia)
+- It estimates the integral using the following formula.
 
-![trapezoidal](https://github.com/MuhammadHabibKhan/master-slave-mpi/assets/92048010/58579405-6d6d-45d6-9f6c-9c287f5ba186) &nbsp; ![Trapezium2](https://github.com/MuhammadHabibKhan/master-slave-mpi/assets/92048010/a785ac3d-f084-4c5b-a2f8-6696bc3a94f7)
+![trapezoidal](https://github.com/MuhammadHabibKhan/master-slave-mpi/assets/92048010/58579405-6d6d-45d6-9f6c-9c287f5ba186) &nbsp;
+
+The greater the number of divisions, the more accurate the estimated calculation of the integral becomes (see the gif below | source: wikipedia)
+
+![Trapezium2](https://github.com/MuhammadHabibKhan/master-slave-mpi/assets/92048010/a785ac3d-f084-4c5b-a2f8-6696bc3a94f7)
 
 #### Calculations
 - The looped part of the formula is calculated as per how many divisions you want in your calculation. This workload is divided among the different MPI processes for faster calculation. 
