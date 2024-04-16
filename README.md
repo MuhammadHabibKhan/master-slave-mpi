@@ -21,6 +21,8 @@ The greater the number of divisions, the more accurate the estimated calculation
 - Built using Open MPI | Pre-installed in most Linux distros today. Use mpiCC / mpicc --showme to see location of the library.
 - If not present, use "sudo apt install openmpi-bin openmpi-doc libopenmpi-dev" to install binaries, documentation and lib files of Open MPI.
 - Generally present under /usr/include/x86-64-linux-gnu/ | Make sure the path is included in your includePath as well as path to your binaries/
+- Use mpicc <filename>.c -o <filename>.exe | mpiCC <filename>.cpp -o <filename>.exe to compile the MPI code.
+- Use mpirun or mpiexec to run the code | mpirun --hostfile <HOST_FILE.txt> -np <NO_MPI_PROCESS> <File_name>.exe  (replace content inside <> accordingly) 
 
 ### Configuration
 - Change the expressions (marked with *** comments) according to the integral you are calculating (see my sequential implementation to see the use of muParser to parse expressions)
