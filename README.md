@@ -37,22 +37,23 @@ sudo apt install openmpi-bin openmpi-doc libopenmpi-dev
 - Make sure the path is included in your includePath as well as path to your binaries.
 - Use the following command to compile the MPI code.
 ```
-mpiCC filename.cpp -o filename.exe
+mpiCC trap.cpp -o trap.exe
 ```
-- Use mpirun or mpiexec command to run the code. (here 10 is the number of MPI Process that will execute)
+- Use mpirun or mpiexec command to run the code. (here 4 is the number of MPI Process that will execute)
 ```
-mpirun --hostfile hostfile.txt -np 4 filename.exe
+mpirun --hostfile config.txt -np 4 trap.exe
 ```
 
 ### Configuration
-- Change the expressions (marked with *** comments) according to the integral you are calculating (you may contact me for a sequential implementation of the code that uses of muParser to parse expressions)
-- Please change the config file and replace the IP address with that of your devices in the cluster
-- Set slots as per your need | slots are amount of process that will run on a device
-- Use --oversubscribe to run processes > number of cores
+- Change the expressions (marked with *** comments) according to the integral you are calculating.
+- Please change the config file and replace the IP address with that of your devices in the cluster.
+- Set slots as per your need | slots are amount of process that will run on a device.
+- Use --oversubscribe to run processes > number of cores.
 
 ### Issues
 - Code gets stuck at MPI_FINALIZE() which I found is a common and recurring issue after some research. Ctrl + C to force exit.
 
 ## Additional Material
-- Use this guide to create cluster with your devices https://github.com/adeen-atif/MPI-Cluster#readme
-- Use this guide to run WSL on your Windows machine to run Unix-based code with VSCode https://github.com/MuhammadHabibKhan/array-sum-pthreads/blob/main/Guide.md 
+- Use [this](https://github.com/adeen-atif/MPI-Cluster#readme) guide to create cluster with your devices.
+- Use [this](https://github.com/MuhammadHabibKhan/array-sum-pthreads/blob/main/Guide.md) guide to run WSL on your Windows machine to run Unix-based code with VSCode.
+- You can contact me for a sequential implementation of the trapzoidal rule that uses of muParser to parse expressions and integrate that into the cluster.
