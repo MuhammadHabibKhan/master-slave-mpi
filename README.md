@@ -18,14 +18,34 @@ The greater the number of divisions, the more accurate the estimated calculation
 - However, in this current implementation, I have not assigned any workload to master or rank 0. It only calculates the end terms and multiplies the result with width.
 
 ### Running the Code
-- Built using Open MPI | Pre-installed in most Linux distros today. Use mpiCC / mpicc --showme to see location of the library.
-- If not present, use "sudo apt install openmpi-bin openmpi-doc libopenmpi-dev" to install binaries, documentation and lib files of Open MPI.
-- Generally present under /usr/include/x86-64-linux-gnu/ | Make sure the path is included in your includePath as well as path to your binaries/
-- Use mpicc <filename>.c -o <filename>.exe | mpiCC <filename>.cpp -o <filename>.exe to compile the MPI code.
-- Use mpirun or mpiexec to run the code | mpirun --hostfile <HOST_FILE.txt> -np <NO_MPI_PROCESS> <File_name>.exe  (replace content inside <> accordingly) 
+
+#### NOTE: mpiCC -> C++ | mpicc -> C
+
+- The code is based on Open MPI which may be pre-installed on your linux distro.
+- Type the following command to see location of the library.
+```
+mpiCC --showme
+```
+- If not installed, type the following command to install binaries, documentation and lib files of Open MPI.
+```
+sudo apt install openmpi-bin openmpi-doc libopenmpi-dev
+```
+- Open MPI is generally stored under
+```
+/usr/include/x86-64-linux-gnu/
+```
+- Make sure the path is included in your includePath as well as path to your binaries.
+- Use the following command to compile the MPI code.
+```
+mpiCC filename.cpp -o filename.exe
+```
+- Use mpirun or mpiexec command to run the code. (here 10 is the number of MPI Process that will execute)
+```
+mpirun --hostfile hostfile.txt -np 4 filename.exe
+```
 
 ### Configuration
-- Change the expressions (marked with *** comments) according to the integral you are calculating (see my sequential implementation to see the use of muParser to parse expressions)
+- Change the expressions (marked with *** comments) according to the integral you are calculating (you may contact me for a sequential implementation of the code that uses of muParser to parse expressions)
 - Please change the config file and replace the IP address with that of your devices in the cluster
 - Set slots as per your need | slots are amount of process that will run on a device
 - Use --oversubscribe to run processes > number of cores
@@ -35,3 +55,4 @@ The greater the number of divisions, the more accurate the estimated calculation
 
 ## Additional Material
 - Use this guide to create cluster with your devices https://github.com/adeen-atif/MPI-Cluster#readme
+- Use this guide to run WSL on your Windows machine to run Unix-based code with VSCode https://github.com/MuhammadHabibKhan/array-sum-pthreads/blob/main/Guide.md 
